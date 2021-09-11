@@ -1,9 +1,5 @@
-if(Test-Path -Path .\temp -PathType Leaf){
-	Write-Host "Deleting .\temp"
-	Remove-Item -Path .\temp -Force
-	Sleep -s 5
-}
-else{
+if(-not(Test-Path -Path .\temp -PathType Leaf)){
+try{
 	Write-Host "Creating New path for ZIP build"
 	New-Item -Path '.\temp' -ItemType Directory
 	New-Item -Path '.\temp\src' -ItemType Directory
@@ -14,4 +10,12 @@ else{
 	Write-Host "Zip File is Created"
 	$Value= Get-ChildItem -Path .\temp\*.zip -Name
 	Write-Host "ZIP FILE NAME: $Value"
+	}catch {
+         throw $_.Exception.Message
+     }
+}
+else{
+	Write-Host "Deleting .\temp"
+	Remove-Item -Path .\temp -Force
+	Sleep -s 5
 }
