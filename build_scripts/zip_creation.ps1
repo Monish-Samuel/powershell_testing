@@ -1,6 +1,6 @@
 if(Test-Path -Path .\temp\*.zip -PathType Leaf){
 	Write-Host "Deleting .\temp"
-	Get-ChildItem -Path ".\temp\" | Remove-Item -Recurse -Confirm:$false -Force
+	Get-ChildItem -Path ".\temp" | Remove-Item -Recurse -Confirm:$false -Force
 	Sleep -s 5
 }
 if(-not(Test-Path -Path .\temp\*.zip -PathType Leaf)){
