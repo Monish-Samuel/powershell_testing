@@ -1,4 +1,4 @@
-if(-not(Test-Path -Path .\temp -PathType Leaf)){
+if(-not(Test-Path -Path temp -PathType Leaf)){
 try{
 	Write-Host "Creating New path for ZIP build"
 	New-Item -Path '.\temp' -ItemType Directory
