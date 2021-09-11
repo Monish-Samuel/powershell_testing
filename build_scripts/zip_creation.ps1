@@ -16,6 +16,6 @@ try{
 }
 else{
 	Write-Host "Deleting .\temp"
-	Remove-Item -Path .\temp -Force
+	Remove-Item -Path .\temp -Force -Confirm:$false
 	Sleep -s 5
 }
