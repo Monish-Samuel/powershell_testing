@@ -1,19 +1,17 @@
-$file= ".\temp"
-
-if(Test-Path -Path $file -PathType Leaf){
-	Write-Host "Deleting [$file]"
-	Remove-Item -Path $file -Force
+if(Test-Path -Path .\temp -PathType Leaf){
+	Write-Host "Deleting .\temp"
+	Remove-Item -Path .\temp -Force
 	Sleep -s 5
 }
 else{
 	Write-Host "Creating New path for ZIP build"
-	New-Item -Path '$file' -ItemType Directory
-	New-Item -Path '$file\src' -ItemType Directory
-	Copy-Item -Path .\src\* -Destination $file\src
+	New-Item -Path '.\temp' -ItemType Directory
+	New-Item -Path '.\temp\src' -ItemType Directory
+	Copy-Item -Path .\src\* -Destination .\temp\src
 	$buildNo= $env:buildNo
-	Compress-Archive -Path $file\src -DestinationPath $file\app-$buildNo.zip
+	Compress-Archive -Path .\temp\src -DestinationPath .\temp\app-$buildNo.zip
 	Sleep -s 5
 	Write-Host "Zip File is Created"
-	$Value= Get-ChildItem -Path $file\*.zip -Name
+	$Value= Get-ChildItem -Path .\temp\*.zip -Name
 	Write-Host "ZIP FILE NAME: $Value"
 }
