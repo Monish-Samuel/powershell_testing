@@ -3,7 +3,7 @@ if(Test-Path -Path .\temp\*.zip -PathType Leaf){
 	Get-ChildItem -Path ".\temp\" | Remove-Item -Recurse -Confirm:$false -Force
 	Sleep -s 5
 }
-if(Test-Path -Path .\temp\*.zip -PathType Leaf){
+if(-not(Test-Path -Path .\temp\*.zip -PathType Leaf)){
 	Write-Host "Creating New path for ZIP build"
 	New-Item -Path '.\temp' -ItemType Directory
 	New-Item -Path '.\temp\src' -ItemType Directory
