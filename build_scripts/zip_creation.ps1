@@ -1,4 +1,4 @@
-$file= '.\temp'
+$file= ".\temp"
 
 if(Test-Path -Path $file -PathType Leaf){
 	Write-Host "Deleting [$file]"
