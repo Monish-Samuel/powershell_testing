@@ -20,3 +20,4 @@ Write-Host "------------------------------Pylint Code Analysis Stop-------------
 Sleep -s 5
 Write-Host "`n"
 Write-Host "CODE ANALYSIS COMPLETE"
+Exit
