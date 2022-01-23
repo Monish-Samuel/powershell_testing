@@ -12,3 +12,10 @@ body {
 	color: red;
 	font-size: 40px
 }
+
+.center{
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+}
