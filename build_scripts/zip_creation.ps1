@@ -8,6 +8,7 @@ if(-not(Test-Path -Path .\source-repo\*.zip -PathType Leaf)){
 	New-Item -Path '.\source-repo' -ItemType Directory
 	New-Item -Path '.\source-repo\src' -ItemType Directory
 	Copy-Item -Path .\src\* -Destination .\source-repo\src -Recurse
+	Copy-Item '.\Dockerfile' -Destination '.\source-repo\src'
 	$buildNo= $env:buildNo
 	Compress-Archive -Path .\source-repo\src -DestinationPath .\source-repo\app-$buildNo.zip
 	Sleep -s 5
