@@ -7,7 +7,7 @@ if(-not(Test-Path -Path .\source-repo\*.zip -PathType Leaf)){
 	Write-Host "Creating New path for ZIP build"
 	New-Item -Path '.\source-repo' -ItemType Directory
 	New-Item -Path '.\source-repo\src' -ItemType Directory
-	Copy-Item -Path .\src\* -Destination .\source-repo\src
+	Copy-Item -Path .\src\* -Destination .\source-repo\src -Recurse
 	$buildNo= $env:buildNo
 	Compress-Archive -Path .\source-repo\src -DestinationPath .\source-repo\app-$buildNo.zip
 	Sleep -s 5
